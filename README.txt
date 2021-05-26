@@ -13,9 +13,9 @@ of the other scripts.
 /////////////////////
 *********************
 /////////////////////
-The remaining scripts are named according to the the result 
-they correspond to and the section of the paper in which the 
-proof appears.
+The remaining scripts are named in the form ``x_y'', where
+y is the result to which they correspond and x is the section
+of the paper in which the proof appears.
 /////////////////////
 *********************
 /////////////////////
