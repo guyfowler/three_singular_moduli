@@ -65,22 +65,22 @@ return(u);
 }
 
 /*-----------------------------------------------------------------------------
-Discriminants with absolute value \leq X and class number \geq h
+Discriminants with absolute value \leq n and class number \geq h
 input: n, h positive integers
 output: discriminants Delta with abs(Delta) \leq n and  h(Delta) \geq h
 ------------------------------------------------------------------------------*/
 
 deltas_ge_h(n,h)=
 {
-my(u,v,w,n,i,j);
+my(u,v,w,m,i,j);
 
-u=deltas(X);
-n=length(u);
+u=deltas(n);
+m=length(u);
 v=vector(n,i,0);
 
 j=1;
 
-for(i=1,n,
+for(i=1,m,
 
 if(qfbclassno(u[i])>=h, 
 v[j]=u[i];
