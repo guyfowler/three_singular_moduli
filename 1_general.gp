@@ -250,6 +250,39 @@ v[l]=(b+I*sqrt(abs(Delta)))/(2*a);
     return(v);
 }
 
+quicktaus(Delta) =
+{
+    my(a,b,c,l,v,t); 
+   
+
+    v=[];
+    k= floor(sqrt(abs(Delta)/3));
+    l=0;
+
+    for(a=1,k,
+	for(b=-a+1,a,
+	    
+	    if((b^2-Delta)%(4*a) == 0, 
+	    c=(b^2 - Delta)/(4*a),
+	    next()
+	    );
+	    
+		if(c<a,next());
+	    if((a==c) && (b<0),next());
+	    if(gcd(a,gcd(b,c))!=1,next());
+	    
+	    
+	    l = l + 1;
+		
+			
+t=(b+I*sqrt(abs(Delta)))/(2*a);	
+v=concat(v,[t]);
+	);
+    );
+    
+    return(v);
+}
+
 /*------------------------------------------------------------
 List of the singular moduli of given discriminant Delta
 input: Delta<0, Delta \equiv 0,1 mod 4
@@ -326,10 +359,10 @@ List of all discriminants Delta with h(Delta)=2
 deg2_delta=[-24,-32,-64,-88,-36,-48,-15,-20,-35,-40,-60,-75,-100,-115,-235,-72,-112,-52,-91,-403,-51,-187,-147,-232,-99,-123,-427,-148,-267];
 
 /*-----------------------------------------------------------------------------------------------------------------------
-List of pairs (Delta_1, Delta_2) with abs(Delta_1)>abs(Delta_2) such that Q(x_1)=Q(x_2) and D_1 \neq D_2
+List of pairs (Delta_1, Delta_2) with abs(Delta_1)>abs(Delta_2) such that Q(x_1)=Q(x_2) \ne Q and D_1 \neq D_2
 for some singular moduli x_1, x_2 of discriminants Delta_1, Delta_2, where D_1, D_2 are the respective
 fundamental discriminants.
-Source: Table 4.1 ABPM15
+Source: Table 2 ABPM15
 -----------------------------------------------------------------------------------------------------------------------*/
 
 badpairs=[[-32,-24],[-64,-24],[-64,-32],[-88,-24],[-88,-32],[-88,-64],[-48,-36],[-20,-15],[-35,-15],[-35,-20],[-40,-15],[-40,-20],[-40,-35],[-60,-15],[-60,-20],[-60,-35],[-60,-40],[-75,-15],[-75,-20],[-75,-35],[-75,-40],[-75,-60],[-100,-15],[-100,-20],[-100,-35],[-100,-40],[-100,-60],[-100,-75],[-115,-15],[-115,-20],[-115,-35],[-115,-40],[-115,-60],[-115,-75],[-115,-100],[-235,-15],[-235,-20],[-235,-35],[-235,-40],[-235,-60],[-235,-75],[-235,-100],[-235,-115],[-91,-52],[-403,-52],[-403,-91],[-187,-51],[-192,-96],[-288,-96],[-288,-192],[-240,-180],[-520,-195],[-715,-195],[-715,-520],[-160,-120],[-280,-120],[-280,-160],[-760,-120],[-760,-160],[-760,-280],[-595,-340],[-960,-480]];
@@ -339,7 +372,7 @@ badpairs=[[-32,-24],[-64,-24],[-64,-32],[-88,-24],[-88,-32],[-88,-64],[-48,-36],
 The entries of ListA are, for each number field L \neq Q which arises as Q(x1) and Q(x2) for some singular 
 moduli x_1, x_2 with distinct fundamental discriminants, a list of the (non-fundamental) discriminants Delta 
 such that L=Q(x) for some singular modulus x of discriminant Delta
-Source: Table 4.1 ABPM15
+Source: Table 2 ABPM15
 -----------------------------------------------------------------------------------------------------------------------*/
 
 ListA=
@@ -364,7 +397,7 @@ bigdeg=[[-96,-192,-288],[-180,-240],[-195,-520,-715],[-120,-160,-280,-760],[-340
 /*------------------------------------------------------------------------------------------------------------------------
 List of discriminants with class number \geq 2, class group annihilated by 2, and fundamental discriminant
 not equal to the single (possibly non-existent) exceptional Siegel--Tatuzawa fundamental discriminant
-Source: Table 2.1 of ABPM15
+Source: Table 1 of ABPM15
 Note: the class numbers of the discriminants in ListB are all in the set {4,8,16} (easy check with clno_ListB())
 -------------------------------------------------------------------------------------------------------------------------*/
  
@@ -382,7 +415,7 @@ Note: the class numbers of the discriminants in ListB are all in the set {4,8,16
  
  /*---------------------------------------------------------------------------------
 List of discriminants with class number =2 and class group annihilated by 2 
-Source: Table 2.1 of ABPM15
+Source: Table 1 of ABPM15
 ----------------------------------------------------------------------------------*/
  
  ListC=
@@ -394,7 +427,7 @@ Source: Table 2.1 of ABPM15
  
  /*------------------------------------------------------------------------------------
 List of discriminants with class number \geq 4 and class group annihilated by 2 
-Source: Table 2.1 of ABPM15
+Source: Table 1 of ABPM15
 --------------------------------------------------------------------------------------*/
 
 ListD=
@@ -568,7 +601,7 @@ List2biiB4 = [[-384, -384, -192], [-480, -480, -192], [-576, -576, -192], [-672,
 
 /*----------------------------------------------------------------------------------
 List of discriminants with class number =8 and class group annihilated by 2 
-Source: Table 2.1 of ABPM15
+Source: Table 1 of ABPM15
 -----------------------------------------------------------------------------------*/
 
 List8()=
@@ -635,7 +668,7 @@ List2biiB8 = [[-1440, -1440, -960], [-1920, -1920, -960], [-2400, -2400, -960], 
 
 /*-----------------------------------------------------------------------------------
 List of discriminants with class number =16 and class group annihilated by 2
-Source: Table 2.1 of ABPM15
+Source: Table 1 of ABPM15
 -------------------------------------------------------------------------------------*/
 
 List16()=
