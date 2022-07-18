@@ -773,6 +773,11 @@ return(v);
 
 /*--------------------------------------
 2.2 Equal fundamental discriminants
+
+For the upper bounds on the absolute values of discriminants of a given class number which are mentioned below, see e.g. 
+p19 of J Klaise "ORDERS IN QUADRATIC IMAGINARY FIELDS OF SMALL CLASS NUMBER", Master's thesis, University of Warwick, 2012.
+Available online (as of 2022/07/15) at:
+https://warwick.ac.uk/fac/cross_fac/complexity/people/students/dtc/students2013/klaise/janis_klaise_ug_report.pdf
 ---------------------------------------*/
 
 /*---------------------------------------------------------
@@ -786,7 +791,7 @@ quot_deltas7()=
 {
 my(v,n,w,k,m,u,v_1,v_2,v_3,v_4,v_5,v_6,v_7,v_8,v_9,v_10,v_11);
 
-v_1=deltas_ge_le_h(30067,2,14);
+v_1=deltas_ge_le_h(30067,2,14); /*We only need check up to 30067 here, because all Delta with h(Delta) \le 14 have abs(Delta) \le 30067*/
 v_2=deltas_eq_h(22443,15);
 v_3=deltas_ge_le_h(11576,16,17);
 v_4=deltas_ge_le_h(7484,18,19);
@@ -892,7 +897,7 @@ quot_deltas8()=
 {
 my(v,n,w,k,m,u,v_1,v_2,v_3,v_4,v_5,v_6,v_7,v_8);
 
-v_1=deltas_ge_le_h(2683,2,5);
+v_1=deltas_ge_le_h(2683,2,5); /*We only need check up to 2683 here, because all Delta with h(Delta) \le 5 have abs(Delta) \le 2683*/
 v_2=deltas_eq_h(3397,6);
 v_3=deltas_eq_h(1393,7);
 v_4=deltas_ge_le_h(650,8,9);
@@ -937,7 +942,7 @@ quot_deltas9()=
 {
 my(v,n,w,k,m,u,v_1,v_2,v_3,v_4,v_5);
 
-v_1=deltas_ge_le_h(1555,2,4);
+v_1=deltas_ge_le_h(1555,2,4); /*We only need check up to 1555 here, because all Delta with h(Delta) \le 4 have abs(Delta) \le 1555*/
 v_2=deltas_eq_h(2131,5);
 v_3=deltas_eq_h(255,6);
 v_4=deltas_eq_h(126,7);
@@ -980,7 +985,7 @@ quot_deltas10()=
 {
 my(v,n,w,k,m,u,v_1,v_2,v_3,v_4);
 
-v_1=deltas_eq_h(427,2);
+v_1=deltas_eq_h(427,2); /*We only need check up to 427 here, because all Delta with h(Delta) \le 2 have abs(Delta) \le 427*/
 v_2=deltas_eq_h(143,3);
 v_3=deltas_eq_h(48,4);
 v_4=deltas_eq_h(28,5);
